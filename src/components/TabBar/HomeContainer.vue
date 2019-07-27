@@ -1,10 +1,6 @@
 <template>
   <div>
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in setlbt" :key="item.img">
-        <img :src="item.img" alt />
-      </mt-swipe-item>
-    </mt-swipe>
+    <swipe :setlbt="setlbt"></swipe>
     <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
 		                    <img src="../../img/menu1.png" alt="">
@@ -12,9 +8,9 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/potolist">
 		                     <img src="../../img/menu2.png" alt="">
 		                    <div class="mui-media-body">图片分享</div></router-link></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodlist">
 		                     <img src="../../img/menu3.png" alt="">
-		                    <div class="mui-media-body">商品购买</div></a></li>
+		                    <div class="mui-media-body">商品购买</div></router-link></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                     <img src="../../img/menu4.png" alt="">
 		                    <div class="mui-media-body">留言反馈</div></a></li>
@@ -32,14 +28,19 @@
 <script>
 import { Toast } from "mint-ui"; //消息弹框
 // import { log } from 'util';
+
+import swipe from '../subcomponent/swiplunbotu.vue'
 export default {
   data() {
     return {
-      setlbt: null
+      setlbt: []
     };
   },
   created() {
     this.getlbt();
+  },
+  components :{
+    swipe
   },
   methods: {
     getlbt() {
@@ -58,14 +59,8 @@ export default {
   }
 };
 </script>
-<style scoped>
-.mint-swipe {
-  height: 200px;
-}
-.mint-swipe img {
-    width: 100%;
-    height: 140px;
-}
+<style >
+
 .mui-grid-9 img {
     width: 60px;
     height: 60px;
@@ -73,5 +68,15 @@ export default {
 .mui-grid-9 mui-table-view-cell {
     border:  none;
 }
-
+.mint-swipe-items-wrap {
+    height: 140px;
+    overflow: hidden;
+}
+.mint-swipe-item {
+  float: left !important;
+}
+/* .mint-swipe-items-wrap .mint-swipe-item img {
+  display: block;
+  float: left;
+} */
 </style>

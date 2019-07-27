@@ -7,6 +7,11 @@ import searchContainer from './components/TabBar/searchContainer.vue'
 import newslist from './components/news/newslist.vue'
 import newsinfoor from './components/news/newsinfo.vue'
 import potolist from './components/poto/potolist.vue'
+import potinfo from './components/poto/potoinfo.vue'
+import goodlist from './components/goods/goodlist.vue'
+import goodinfo from './components/goods/goodinfo.vue'
+import goodDesc from './components/goods/goodDesc.vue'
+import goodCommen from './components/goods/goodComment.vue'
 
 var router =new VueRouter({
     routes :[
@@ -17,7 +22,12 @@ var router =new VueRouter({
         {path:"/search",component:searchContainer},
         {path :"/home/newslist",component:newslist},
         {path:"/home/newsinfo/:id",component:newsinfoor},
-        {path:'/home/potolist',component:potolist}
+        {path:'/home/potolist',component:potolist},
+        {path:"/home/potoinfo/:id",component:potinfo},
+        {path:"/home/goodlist",component:goodlist},
+        {path:"/home/goodinfo/:id",component:goodinfo,name :"GoodInfo"},
+        {path:"/home/goodDesc/:id",component:goodDesc,name :"goddesc"},
+        {path:"/home/goodComment/:id",component:goodCommen,name :"godcomment"}
     ],
     linkActiveClass : "mui-active"
 })
